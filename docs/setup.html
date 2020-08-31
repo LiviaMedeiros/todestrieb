@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<!-- 엘샤#2343 -->
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Gallery Mode setup</title>
+<meta id="viewport" name="viewport" content="width=768, user-scalable=no" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="author" content="LiviaMedeiros" />
+<meta name="description" content="Import gallery" />
+<meta property="og:image" content="https://todestrieb.magica-us.com/magica/resource/image_web/page/collection/btn_collection_chara.png" />
+<meta property="og:type" content="object" />
+<meta property="og:title" content="Gallery Mode setup" />
+<meta property="og:url" content="https://todestrieb.magica-us.com/setup" />
+<meta name="theme-color" content="#6d4e88" />
+<link rel="canonical" href="https://todestrieb.magica-us.com/setup" />
+<link rel="icon" type="image/png" sizes="256x256" href="/img/icon/256.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="/img/icon/192.png" />
+<link rel="icon" type="image/png" sizes="128x128" href="/img/icon/128.png" />
+<link rel="icon" type="image/png" sizes="96x96" href="/img/icon/96.png" />
+<link rel="icon" type="image/png" sizes="64x64" href="/img/icon/64.png" />
+<link rel="icon" type="image/png" sizes="48x48" href="/img/icon/48.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/img/icon/32.png" />
+<link rel="icon" type="image/png" sizes="24x24" href="/img/icon/24.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/img/icon/16.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:600" rel="stylesheet" />
+<link href="https://magica-us.com/qb/step.css" integrity="sha512-BdDgPDg3Sk8Dtb4rTsQotu9RQul00bFh5wPdbuNAqcqxIQzpZj4DMwUENaI7hgjNMzlLnr8Aefzw1CJaYLUDpA==" crossorigin="anonymous" rel="stylesheet" />
+<script src="https://magica-us.com/qb/step.js" integrity="sha512-lyUkX/6PfdDjsiKvGBsL4WmwJ0aLAs+YVssALzk7w/iF6mlERZi3pqMx4HPy5z5H/CryuuNrhxLVdnyO4s2loQ==" crossorigin="anonymous" defer></script>
+<script>
+(d => { "use strict";
+	const _ = {
+		magic: {},
+		soul: null,
+		gem: '{"data":{}}',
+		link: 'https://todestrieb.magica-us.com/',
+		entropy: 'https://todestrieb.magica-us.com/magica/json/ENtropy.json',
+		grief:seed => seed.split("").reduce((q,b)=>~((q<<5)-q+b.charCodeAt(0))%0x40691a05>>>0,0x2666a164),
+		seed: {
+			0xcee160  : "IjMwNTIiOlsiMzA1MjQiLCIzMDUyNSJdfSwiYWRqdXN0bWVudHMiOnsiYWxsX2Rpc2NzIjoiUkFOR0VfSCJ9fQ==",// 146
+			0x1d47f06 : "IjEwMTAiOlsiMTAxMDQiLCIxMDEwNSJdLCIxMDE4IjpbIjEwMTg0IiwiMTAxODUiXSwiMzAwOCI6WyIzMDA4MiIsIjMwMDgzIiwiMzAwODQiXSwiMzAxMiI6WyIzMDEyMyIsIjMwMTI0Il0sIjMwMTMiOlsiMzAxMzMiLCIzMDEzNCJdLCIzMDI4IjpbIjMwMjgyIiwiMzAyODMiLCIzMDI4NCJdLCIzMDM1IjpbIjMwMzU0IiwiMzAzNTUiXX0sImFkanVzdG1lbnRzIjp7ImFsbF9kaXNjcyI6IkNIQVJHRSJ9fQ==",// 0954
+			0x5586921 : "IjMwMjYiOlsiMzAyNjQiLCIzMDI2NSJdLCIzMDI3IjpbIjMwMjczIiwiMzAyNzQiXSwiMzAyOCI6WyIzMDI4MiIsIjMwMjgzIiwiMzAyODQiXX19",// 45
+			0x1044d025: "IjEwMDEiOlsiMTAwMTEiLCIxMDAxMiJdfSwiYWRqdXN0bWVudHMiOnsiZml4X3Njcm9sbGJ1ZyI6ZmFsc2UsImtlZXBfc3RhdGJ1ZyI6dHJ1ZSwia2VlcF9leGJ1ZyI6dHJ1ZSwiZm9udCI6ZmFsc2UsImxpbWl0X2hlaWdodCI6dHJ1ZX19",// f43661
+			0x168ed0e6: "IjIxMDEiOlsiMjEwMTQiLCIyMTAxNSJdLCIxMzAxIjpbIjEzMDE0IiwiMTMwMTUiXX0sImFkanVzdG1lbnRzIjp7ImtlZXBfZXhidWciOnRydWV9fQ==",// 999
+			0x27083ad2: "IjEwMDgiOlsiMTAwODQiLCIxMDA4NSJdLCIxMTA4IjpbIjExMDg0IiwiMTEwODUiXX0sImFkanVzdG1lbnRzIjp7ImZvbnQiOiJtZWd1Y2EiLCJ0ZXh0X2Nhc2UiOiJsb3dlciIsImhpZGVfbWlzc2luZyI6dHJ1ZX19",// a67
+			0x28f43e96: "IjEwMTciOlsiMTAxNzQiLCIxMDE3NSJdLCIxMTE3IjpbIjExMTc0IiwiMTExNzUiXX0sImFkanVzdG1lbnRzIjp7ImhpZGVfbWlzc2luZyI6dHJ1ZX19",// 0x3a0
+			0x3e4298ad: "IjI1MDAiOlsiMjUwMDQiLCIyNTAwNSJdfSwiYWRqdXN0bWVudHMiOnsiZm9udCI6Im1lZ3VjYSIsInRleHRfY2FzZSI6InVwcGVyIn19",// 4603
+			0xc673aa7e: "IjMwMDYiOlsiMzAwNjIiLCIzMDA2MyIsIjMwMDY0Il0sIjMwMTAiOlsiMzAxMDMiLCIzMDEwNCJdfSwiYWRqdXN0bWVudHMiOnsibWlycm9yIjp0cnVlfX0=",// 363
+			0xc78d1c54: "IjEwMDEiOlsiMTAwMTEiLCIxMDAxMiIsIjEwMDEzIiwiMTAwMTQiLCIxMDAxNSJdLCIxMDE0IjpbIjEwMTQ0Il0sIjEwMTUiOlsiMTAxNTQiLCIxMDE1NSJdLCIxMTE4IjpbIjExMTg0Il0sIjIwMDQiOlsiMjAwNDUiXSwiMjAwNSI6WyIyMDA1NCIsIjIwMDU1Il0sIjIwMDYiOlsiMjAwNjUiXSwiMjAwNyI6WyIyMDA3NCJdLCIyNTAwIjpbIjI1MDA0Il0sIjMwMDEiOlsiMzAwMTMiXSwiMzAwMyI6WyIzMDAzMiIsIjMwMDMzIiwiMzAwMzQiLCIzMDAzNSJdLCIzMDA1IjpbIjMwMDUzIl0sIjMwMDciOlsiMzAwNzIiXSwiMzAxMCI6WyIzMDEwMyIsIjMwMTA0Il0sIjMwMTYiOlsiMzAxNjQiXSwiMzAzMCI6WyIzMDMwMiJdLCIzMDM3IjpbIjMwMzczIl0sIjMwNDkiOlsiMzA0OTQiXSwiNDAwMSI6WyI0MDAxMyJdLCI0MDAzIjpbIjQwMDMzIl0sIjQwMTEiOlsiNDAxMTQiLCI0MDExNSJdLCI0MDEyIjpbIjQwMTIzIiwiNDAxMjQiXSwiNDAxMyI6WyI0MDEzMyIsIjQwMTM0Il0sIjQwMjEiOlsiNDAyMSJdLCI0MDI1IjpbIjQwMjUzIl0sIjQwMjYiOlsiNDAyNjQiXSwiNDA1MSI6WyI0MDUxNCJdLCI0MDUyIjpbIjQwNTI0Il0sIjQwNTMiOlsiNDA1MzMiXX19",// 03
+			0xd24a4ca3: "IjMwMTMiOlsiMzAxMzMiLCIzMDEzNCJdLCIzMDE0IjpbIjMwMTQyIiwiMzAxNDMiLCIzMDE0NCJdLCIzMDE1IjpbIjMwMTU0IiwiMzAxNTUiXX19",// 8255
+			0xf9d02a71: "IjEwMDEiOlsiMTAwMTEiXX19",// 168
+			0xf9d1fc09: "fX0="// void
+		}, qoq: ['Y2hhcmdpdXM=','ZGVzdHJ1ZG8=','cm9ycmlt','bWFja2luZ2hhbQ=='],
+		käse: (tea, party) => (d.cookie = tea+"="+JSON.stringify(party)+";path=/;max-age=436320000;secure;samesite=lax"),
+		intro: r => d.getElementById('e').className = r? 'soul':'gem',
+		goingon: console.warn,
+		status(r) {
+			d.getElementById('mgirls').href = r? _.link:'#';
+			d.body.className = r? 'suffering':'';
+			d.getElementById('ap').innerText = r + '/92';
+			return !!r;
+		},
+		contract: body => new Promise((soul, gem) => {
+			const magic = JSON.parse(body);
+			return magic.data ? soul(magic) : gem("bad body");
+		}),
+		async wish(body, b = false) {
+			if (!body || !(body = await _.contract(b ? atob("eyJkYXRhIjp7" + body) : body))) return false;
+			_.käse('gallery', _.magic=body);
+			$.draw();
+			return _.status(Object.keys(_.magic.data).length);
+		},
+		load: blood => new Promise((soul, gem) => {
+			if (!blood) throw gem("do not throw souls");
+			const fumu = new FileReader();
+			fumu.onload = e => soul(e.target.result);
+			fumu.onerror = gem;
+			fumu.readAsText(blood);
+		}),
+		popup: {
+			open(e) {
+				d.getElementById('popup_cheat').innerText = atob(_.qoq.pop()||'bWFja2luZ2hhbQ==');
+				return d.getElementById('popup').className = 'open';
+			},
+			close: e => (d.getElementById('popup').className = 'close')
+		}
+	};
+
+	const $ = {
+		magic: {},
+		valid: ['fix_scrollbug', 'keep_statbug', 'keep_exbug', 'limit_height', 'hide_missing', 'mirror'],
+		adjustments: {
+			"fix_scrollbug": false,
+			"keep_statbug": false,
+			"keep_exbug": false,
+			"limit_height": false,
+			"hide_missing": false
+		},
+		init(e) {
+			$.features = d.getElementById('features');
+			$.draw($.set(JSON.parse((d.cookie.match(/(?:^|; )adjustments=([^;]*)/)||[0,null])[1]||'{}')));
+		},
+		set: e => Object.assign($.magic, e),
+		purge: e => ($.magic = {}),
+		touch: e => $.pull($.set({[e.target.id]:e.target.checked})),
+		features: null,
+		menu: (catcon, [key, value]) => $.valid.includes(key) ?
+			((c, l) => {
+				c.type = 'checkbox';
+				c.className = 'adjustment';
+				c.id = l.htmlFor = key;
+				c.checked = value;
+				c.addEventListener('change', $.touch);
+				l.appendChild(d.createTextNode(key.replace('_',' ')));
+				return catcon.concat(c, l);
+			})(d.createElement('input'), d.createElement('label')) : catcon,
+		pull(e) {
+			_.käse('adjustments', e);
+			$.draw(e);
+		},
+		draw: (e = null) => !d.getElementById('adjust').classList.contains('init') && $.features.replaceChildren(...Object.entries({...$.adjustments, ...(e || $.magic), ..._.magic.adjustments}).reduce($.menu, [])),
+		toggle(e) {
+			if (e.target.classList.contains('init')) {
+				e.target.classList.remove('init');
+				$.init();
+			}
+			d.getElementById('adjustments').classList.toggle('active');
+		}
+	};
+
+	d.addEventListener("DOMContentLoaded", () => {
+		( _.soul = (d.cookie.match(/(?:^|; )gallery=([^;]*)/)||[0,null])[1])
+		? _.intro(true)
+		: fetch(_.entropy)
+		. then(intro => intro.ok && intro.json(), soul => {throw soul}) // may throw souls on resolve
+		. then(entropy => _.intro(!entropy || (Object.entries(entropy).forEach(([id, url]) => d.getElementById(id).style.backgroundImage = 'url('+url+')'), false)))
+		. catch(soul => _.intro(true));
+		_.wish(_.soul || _.gem);
+
+		[
+			['json',   'change',   e => _.load(e.target.files[0]).then(_.wish).catch(_.goingon)],
+			['ap',     'input',    e => _.wish(_.seed[_.grief(e.target.innerText.toLowerCase())]||0,9).catch(_.goingon)],
+			['back',   'dblclick', e => _.wish(_.gem)],
+			['help',   'click',         _.popup.open],
+			['popup',  'click',         _.popup.close],
+			['adjust', 'click',         $.toggle],
+			['reset',  'dblclick', e => $.pull($.purge())]
+		].forEach(([id, ...ea]) => d.getElementById(id).addEventListener(...ea));
+	});
+})(document);
+</script>
+<style id="style_intro">
+@keyframes suffering {
+	  0% {opacity:0;filter:brightness(0)}
+	  1% {opacity:1;filter:brightness(0)}
+	 10% {opacity:1;filter:brightness(1);z-index:220}
+	 70% {opacity:1;filter:brightness(1)}
+	 90% {opacity:1;filter:brightness(.7) sepia(1)}
+	100% {opacity:1;filter:brightness(0) sepia(1)}
+}
+@keyframes opening {
+	  0% {z-index:200;opacity:1}
+	 90% {z-index:200;opacity:0}
+	100% {z-index:-50;opacity:0;display:none}
+}
+
+#e {animation: opening 0.1s linear 17s 1 normal forwards paused;position:absolute;width:100vw;height:100vh;z-index:200;opacity:1}
+#n {width:100vw;height:100vh;background:#000;position:absolute;box-shadow:inset 0 0 60vmax 1vmax #000,inset 0 0 70vmax 2vmax #000,inset 0 0 80vmax 3vmax #000}
+#t {animation: suffering 2.8s linear 0.5s  1 normal forwards paused;background:no-repeat center/contain}
+#r {animation: suffering 2.8s linear 3.5s  1 normal forwards paused;background:no-repeat center/contain}
+#o {animation: suffering 2.8s linear 6.5s  1 normal forwards paused;background:no-repeat center/contain}
+#p {animation: suffering 2.8s linear 9.5s  1 normal forwards paused;background:no-repeat center/contain}
+#y {animation: suffering 2.8s linear 13.5s 1 normal forwards paused;background:no-repeat center}
+
+#aniplex {position:absolute;background:no-repeat top left/contain url(/img/ending/copy.png);z-index:250;top:0;right:0;width:347px;height:27px;opacity:.5}
+#e.soul {display:none}
+#n > div {position:absolute;top:0;left:0;right:0;bottom:0;filter:brightness(0);opacity:0;width:100%;height:100%;z-index:210;box-shadow:inset 0 0 60vmax 1vmax #000,inset 0 0 70vmax 2vmax #000,inset 0 0 80vmax 3vmax #000}
+#e.gem, #e.gem > #n > div {animation-play-state:running}
+</style>
+<style id="style_setup">
+@keyframes halo {from{transform:rotate(0);filter:hue-rotate(0)}to{transform:rotate(360deg);filter:hue-rotate(360deg)}}
+@keyframes huerotate {from{transform:rotate(0)}to{transform:rotate(360deg)}}
+@keyframes common_fade_in {0%{opacity:0}100%{opacity:1}}
+@keyframes common_fade_in_out {0%{opacity:0}50%{opacity:.75}100%{opacity:0}}
+@keyframes arrow_move_r {0%{transform:translateX(0)}50%{transform:translateX(20px)}100%{transform:translateX(0)}}
+
+html {width:100%;height:100%;margin:0;padding:0;overflow:hidden}
+body {background:radial-gradient(black, #f8f2e6);color:#000;font-size:14px;font-family:"Open Sans",Sans-Serif;overflow:hidden;position:fixed;margin:0;padding:0;width:100%;height:100%}
+a {color:inherit;text-decoration:inherit}
+::selection {background:0 0}
+:focus-visible {filter:drop-shadow(0 0 1px #ffb6c1) drop-shadow(0 0 2px #ffb6c1) drop-shadow(0 0 3px #ffb6c1);outline:none}
+
+#warupuru {animation:30s linear 1s infinite normal none running halo;background:no-repeat center/contain url(/img/waru/halo_master.png);filter:drop-shadow(25vmin 25vmin 0px rgba(64,0,128,0.1));margin:-50vmin 0 0 -50vmin;padding:0;width:100vmin;height:100vmin;position:fixed;left:50%;top:50%;z-index:20}
+#warupuru::before {content:"";animation:30s linear 1s infinite reverse none running halo;background:no-repeat center/contain url(/img/waru/puru.png);width:100%;height:100%;display:block;top:0;left:0;position:fixed;z-index:40}
+#warupuru::after {content:"";animation:9s linear 1s infinite reverse none running halo;background:no-repeat center/contain url(/img/waru/halo_slave.png);width:100%;height:100%;display:block;position:absolute;z-index:30}
+.suffering #warupuru {animation:30s linear 1s infinite normal none running huerotate}
+
+#back {width:89px;height:43px;background-image:url(/magica/resource/image_web/common/global/global_back.png);background-repeat:no-repeat;background-size:89px 43px;position:fixed;top:5px;left:5px;z-index:70;cursor:not-allowed;filter:grayscale(.8)}
+.suffering #back {cursor:pointer;filter:grayscale(0)}
+#menu {width:104px;height:48px;background-image:url(/magica/resource/image_web/common/global/global_menu.png);background-repeat:no-repeat;background-size:contain;top:0;right:0;position:fixed;z-index:70}
+#mgirls {display:block;filter:grayscale(.8);cursor:not-allowed;transition:filter 1s;position:fixed;color:inherit;text-decoration:inherit;z-index:70;top:48px;right:0;width:104px;height:123px;background-image:url(/magica/resource/image_web/common/global/global_unit.png);background-size:contain}
+.suffering #mgirls {filter:grayscale(0);cursor:pointer}
+.suffering #mgirls::before{content:"";width:88px;height:54px;opacity:0;background:url(/img/misc/arrow_r.png) left top/contain no-repeat;animation:common_fade_in .3s ease .75s 1 alternate, arrow_move_r 1s ease-in-out 1s infinite;animation-fill-mode:forwards;position:absolute;top:32px;left:-100px;filter:drop-shadow(0 0 1px #000);}
+#innocent {background-image:url(/magica/resource/image_web/common/global/global_memoria.png);background-size:contain;top:171px;right:0;filter:grayscale(1);z-index:70;position:fixed;width:104px;height:123px;cursor:not-allowed}
+#shop {background-image:url(/magica/resource/image_web/common/global/global_shop.png);background-size:contain;width:104px;height:110px;top:294px;right:0;filter:grayscale(1);z-index:70;position:fixed;cursor:not-allowed}
+#ap {box-sizing:border-box;padding:9px 14px 0 38px;text-align:center;white-space:nowrap;outline:0;width:150px;height:36px;background-image:url(/magica/resource/image_web/common/global/global_ap_wrap.png);background-size:contain;background-repeat:no-repeat;position:fixed;top:7px;left:100px;line-height:18px;text-shadow:1px 1px 1px rgba(0,0,0,.8);color:#ffe38f;font-size:14px;user-select:text;z-index:70;overflow:hidden}
+#help {width:36px;height:36px;background-image:url(/magica/resource/image_web/common/icon/icon_help.png);background-size:contain;background-repeat:no-repeat;position:fixed;top:7px;left:260px;z-index:70;cursor:help}
+.suffering #back:active,#ap:active,#help:active,.suffering #mgirls:active,#popup_close:active,#reset:active {filter:brightness(1.2)}
+
+#adjust {display:block;cursor:not-allowed;position:fixed;color:inherit;text-decoration:inherit;z-index:70;top:48px;left:5px;width:83px;height:88px;background:left top/contain no-repeat url(/img/misc/global_etc.png);filter:grayscale(.8);transition:filter 1s}
+.suffering #adjust {filter:grayscale(0);cursor:pointer;}
+#adjustments {position:absolute;top:48px;left:100px;z-index:80;display:none;text-shadow:0px 0px 4px #fff;color: #324}
+#adjustments.active {display:block}
+#reset {display:block;position:absolute;left:-75px;top:110px;width:51px;height:52px;cursor:wait;background:left top/contain no-repeat url(/img/misc/icon_reset.png)}
+#features > input[type=checkbox] {display:none}
+#features > input[type=checkbox] + label {margin:4px 0;padding:0 0 0 44px;line-height:40px;height:40px;background:left top no-repeat url(/magica/resource/image_web/common/icon/icon_checkbox.png);display:block;position:relative}
+#features > input[type=checkbox]:checked + label:before {width:27px;height:21px;background:left top/contain no-repeat url(/magica/resource/image_web/common/icon/icon_checkbox_check.png);position:absolute;top:9px;left:6px;content:""}
+
+#form {position:absolute;width:100%;height:100%;z-index:60}
+#label {display:block;width:100%;height:100%;background:center bottom url(/img/misc/touch_screen.png) no-repeat;animation:common_fade_in_out 1s ease-in-out 0s infinite;z-index:5}
+.suffering #label {opacity:0;animation:none}
+#json:focus {outline:0}
+#json {cursor:alias;position:absolute;opacity:0;top:0;left:0;width:100%;height:100%;z-index:10}
+</style>
+<style id="style_popup">
+@keyframes popup_open{0%{transform:translateY(-20px);opacity:0;display:none;}1%{transform:translateY(-20px);opacity:0;display:block;}100%{transform:translateY(0);opacity:1;display:block;z-index:100001;}}
+@keyframes popup_close{0%{transform:translateY(0);opacity:1;display:block;}99%{transform:translateY(20px);opacity:0;display:block;}100%{transform:translateY(20px);opacity:0;display:none;z-index:-5;}}
+
+#popup {width:100%;height:100%;position:absolute;top:0;left:0;}
+#popup.init {display:none;opacity:0;}
+#popup.open {background:radial-gradient(transparent,black);z-index:100000;}
+#popup.close {z-index:-10;}
+#popup.open #popup_inner {animation:popup_open .3s ease 0s 1 normal forwards running;}
+#popup.close #popup_inner {animation:popup_close .2s ease 0s 1 normal forwards running;}
+#popup_title {width:325px;margin:14px auto 0;background:url(/magica/resource/image_web/common/popup/bg_popup_title_c.png) left top repeat;position:relative;color:#fff;font-size:22px;line-height:43px;text-align:center;cursor:default;}
+#popup_title:before,#popup_title:after {width:40px;height:43px;position:absolute;top:0;content:"";}
+#popup_title:before {background:url(/magica/resource/image_web/common/popup/bg_popup_title_l.png) left top repeat;left:-38px;}
+#popup_title:after {background:url(/magica/resource/image_web/common/popup/bg_popup_title_r.png) left top repeat;right:-38px;}
+#popup_inner {width:564px;height:370px;position:absolute;top:calc(50% - 174px);left:calc(50% - 282px);box-sizing:border-box;background-color:#ffffff;display:block;border-width:20px;border-style:solid;border-radius:22px;border-image:url(/magica/resource/image_web/common/popup/bg_popup.png) 22 fill stretch;text-shadow:none;z-index:902;}
+#popup_close {width:52px;height:51px;background:url(/magica/resource/image_web/common/popup/popup_close.png) left top no-repeat;display:inline-block;position:absolute;top:-40px;right:-40px;z-index:20;cursor:pointer;}
+#popup_wrap {width:500px;margin:0 auto;padding-top:25px;position:relative;}
+#popup_cheat {color:#f49b9b;}
+#popup_copyright {display:inline-block;vertical-align:middle;padding-left:5px;}
+
+#elsea {color:#639}
+</style>
+</head>
+<body>
+<div class="init" id="popup"><div id="popup_inner"><span id="popup_close"></span><p id="popup_title">Magical Girls Gallery Setup</p><div id="popup_wrap">
+<p>This page allows to import M-Girls into the Gallery.</p>
+<p>Click anywhere, or drag&amp;drop your gallery data file. It can be found in <span id="filepath">/data/data/com.aniplex.magireco.en/files/</span>, or generated with NAgitan from backup archive.</p>
+<p>If you don't have the file, try to erase AP counter and type something to get predefined example set. For example, <span id="popup_cheat">mackingham</span>.</p>
+<p>Gallery Mode maintenance and web version by <span id="elsea" title="엘샤#2343">엘샤</span>.</p>
+<p>Based on <span id="popup_copyright"><a target="_blank" href="https://play.google.com/store/apps/details?id=com.aniplex.magireco">Magia Record: Puella Magi Madoka Magica Gaiden</a><br /><a target="_blank" href="https://magireco.com/">&copy; Magica Quartet/Aniplex, Magia Record Partners</a></span></p>
+</div></div></div>
+<div id="e">
+<div id="n">
+<div id="t"></div>
+<div id="r"></div>
+<div id="o"></div>
+<div id="p"></div>
+<div id="y"></div>
+</div><div id="aniplex"></div></div>
+<div id="back" title="Doubleclick to reset all data"></div>
+<a id="adjust" class="init" href="#" title="Adjustments"></a>
+<div id="adjustments"><a id="reset" href="#" title="Reset"></a><div id="features"></div></div>
+<div id="menu"></div>
+<a id="mgirls" href="#" title="M-Girls"></a>
+<a id="innocent" href="#"></a>
+<a id="shop" href="#"></a>
+<div tabindex="5" id="ap" contenteditable="true">50/92</div>
+<div id="help"></div>
+<div id="warupuru"></div>
+<form id="form"><input tabindex="3" type="file" id="json" name="json" /><label id="label" for="json"></label></form></body>
+</html>

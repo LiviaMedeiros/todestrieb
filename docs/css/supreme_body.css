@@ -1,0 +1,6 @@
+/* 엘샤#2343 */
+@keyframes cycleofincubator{from{transform:rotate(2deg) scale(0.95)}to{transform:rotate(-2deg) scale(1.05)}}
+body{margin:0;padding:0;background:#000;overflow:hidden;opacity:1;transform:scale(2);cursor:none;transition:all 0.2s;width:100vw;height:100vh}
+body:hover{opacity:0.2;transform:scale(1)}
+body::before{content:"";background:fixed no-repeat center/50% url("/img/mokyukyu.png");width:100%;height:100%;display:block;animation:20s ease-in-out -10s infinite alternate none running cycleofincubator;}
+body::after{content:"";position:fixed;z-index:40;bottom:0;right:0;width:128px;height:128px;background:no-repeat url("/img/mumiwhy.png")}
