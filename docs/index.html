@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<!-- 엘샤#2343 -->
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Magical Girls Gallery</title>
+	<meta id="viewport" name="viewport" content="width=1024, user-scalable=no" />
+	<meta name="format-detection" content="email=no,telephone=no" />
+	<meta name="mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="author" content="LiviaMedeiros" />
+	<meta name="description" content="©Magica Quartet/Aniplex, Magia Record Partners" />
+	<meta property="og:image" content="https://todestrieb.magica-us.com/img/gallery.png" />
+	<meta property="og:image:alt" content="©Magica Quartet/Aniplex, Magia Record Partners" />
+	<meta property="og:type" content="object" />
+	<meta property="og:title" content="Magical Girls Gallery" />
+	<meta property="og:url" content="https://todestrieb.magica-us.com" />
+	<meta name="twitter:image:src" content="https://todestrieb.magica-us.com/img/gallery.png" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="Magical Girls Gallery" />
+	<meta name="theme-color" content="#6d4e88" />
+	<link rel="canonical" href="https://todestrieb.magica-us.com/" />
+	<link rel="manifest" href="/manifest.json" />
+	<link rel="icon" type="image/png" sizes="512x512" href="/img/icon/512.png" />
+	<link rel="icon" type="image/png" sizes="256x256" href="/img/icon/256.png" />
+	<link rel="icon" type="image/png" sizes="192x192" href="/img/icon/192.png" />
+	<link rel="icon" type="image/png" sizes="128x128" href="/img/icon/128.png" />
+	<link rel="icon" type="image/png" sizes="96x96" href="/img/icon/96.png" />
+	<link rel="icon" type="image/png" sizes="64x64" href="/img/icon/64.png" />
+	<link rel="icon" type="image/png" sizes="48x48" href="/img/icon/48.png" />
+	<link rel="icon" type="image/png" sizes="32x32" href="/img/icon/32.png" />
+	<link rel="icon" type="image/png" sizes="24x24" href="/img/icon/24.png" />
+	<link rel="icon" type="image/png" sizes="16x16" href="/img/icon/16.png" />
+	<script integrity="sha512-6ORWJX/LrnSjBzwefdNUyLCMTIsGoNP6NftMy2UAm1JBm6PRZCO1d7OHBStWpVFZLO+RerTvqX/Z9mBFfCJZ4A==" src="/magica/js/libs/jquery-3.6.0.slim.min.js"></script>
+	<script integrity="sha512-mznIrl7VSiImDzvbg5Qqn99fDnsgd/YHG9nv1YE12ONoTLoaSUW1e/pmgNTOYGMQ2Vv1v84PFkm89DFSM/zA1w==" src="/magica/js/sa/NA.js"></script>
+	<link integrity="sha512-aL0JziLJjS6EB2+Pz0G7wnU23ZwRB9yH9WiMiEIPnADNcFF8oFWF0cuQKoz0Gpqu4A+SGBsg69THp72yC0wpAg==" id="style_common" rel="stylesheet" href="/magica/css/common.css" />
+	<link integrity="sha512-AEAvmibdK09tu3ydNfRvUs+hXDHXLhht3zaizetpunp8I4QgRThVkCzaow3xvY0az8LoUKqsSKje1gUxjvaI4Q==" id="style_browser" rel="stylesheet" href="/magica/css/browser.css" />
+	<style id="style_adjustments"></style>
+	<style id="style_inline">body{background:url(/magica/resource/image_web/test/bg/web_common.jpg) left top no-repeat}</style>
+</head>
+<body>
+	<div id="ready">.</div>
+	<div id="loading">
+		<p></p>
+	</div>
+	<div id="baseContainer" class="fadein">
+		<div id="mainContent">
+			<div>
+				<div id="CharaCollection">
+					<div id="collectionDetailWrap"></div>
+					<div id="collectionListWrap">
+						<div id="tabArea">
+							<ul class="tabBtns">
+								<li tabindex="1" class="TE se_tabs current" data-att="ALL" title="ALL"><img src="/magica/resource/image_web/common/chara/att_all.png" alt="all" /></li>
+								<li tabindex="1" class="TE se_tabs" data-att="fire" title="Flame"><img src="/magica/resource/image_web/common/chara/att_fire.png" alt="fire" /></li>
+								<li tabindex="1" class="TE se_tabs" data-att="water" title="Aqua"><img src="/magica/resource/image_web/common/chara/att_water.png" alt="water" /></li>
+								<li tabindex="1" class="TE se_tabs" data-att="timber" title="Forest"><img src="/magica/resource/image_web/common/chara/att_timber.png" alt="timber" /></li>
+								<li tabindex="1" class="TE se_tabs" data-att="light" title="Light"><img src="/magica/resource/image_web/common/chara/att_light.png" alt="light" /></li>
+								<li tabindex="1" class="TE se_tabs" data-att="dark" title="Dark"><img src="/magica/resource/image_web/common/chara/att_dark.png" alt="dark" /></li>
+								<li tabindex="1" class="TE se_tabs" data-att="void" title="Void"><img src="/magica/resource/image_web/common/chara/att_void.png" alt="void" /></li>
+							</ul>
+						</div>
+						<div id="charaWrap" class="all commonFrame2">
+							<h2>Magical Girls</h2>
+							<div class="hiddenWrap">
+								<div tabindex="-1" id="charaHiddenWrap" style="position:relative;overflow-y:scroll">
+									<div id="charaWrapInner" class="charaWrapInner" style="position:relative"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="cardDetail" class="hide"><span class="collectionBack"></span></div>
+		<div id="tmplCharaListItem" style="display:none" class="chara commonFrame4 se_decide" max-card-rank="0">
+			<div class="nameWrap">
+				<span class="att"></span>
+				<p class="name"></p>
+				<p class="kana"></p>
+			</div>
+			<div class="charaIconWrap"></div>
+		</div>
+		<div id="tmplCharaDetail" style="display:none">
+			<span tabindex="50" class="collectionBack">
+				<span class="se_cancel"></span>
+			</span>
+			<div id="detailCardName">
+				<span id="att"></span>
+				<p class="charaName ts_pink"></p>
+			</div>
+			<div id="detailCardImage"></div>
+			<ul id="detailTab" class="common_tab t_gold">
+				<li tabindex="3" name="status" data-type="status" class="TE se_tabs current"><span>About</span></li>
+				<li tabindex="3" name="skill" data-type="skill" class="TE se_tabs"><span>Skills</span></li>
+				<li tabindex="3" name="illust" data-type="illust" class="TE se_tabs"><span>Settings</span></li>
+			</ul>
+			<div id="cardDetailWrap" class="status">
+				<div tabindex="-1" id="hiddenWrap" class="hiddenWrap" style="position:relative;overflow-y:scroll">
+					<div tabindex="-1" class="scrollInner" style="position:relative">
+						<div id="charaStatus">
+							<div class="status">
+								<div id="cardDetailMiniChara">
+									<img alt="" />
+									<span class="bg">
+										<div id="rare"></div>
+									</span>
+								</div>
+								<div class="statusWrap">
+									<div class="level">
+										<div class="flexBox">
+											<span class="thStyle">Lvl.</span>
+											<p id="detailLv" class="tdStyle">
+												<span class="currentLv c_red"></span>
+												<span class="sla">/</span>
+												<span class="maxLv"></span>
+											</p>
+										</div>
+										<div class="gauge">
+											<div class="levelMax"></div>
+											<div class="expGaugeWrap">
+												<div class="expGaugeInner" style="width:100%"></div>
+												<div class="bg"></div>
+											</div>
+										</div>
+									</div>
+									<div class="type flexBox">
+										<span class="thStyle">Type</span>
+										<span class="tdStyle"></span>
+									</div>
+									<div class="revision">
+										<div class="flexBox">
+											<span class="thStyle">Magic Lvl.</span>
+											<span class="c_red tdStyle">3</span>
+										</div>
+										<ul class="flexBox revisionIcon">
+											<li class="on"></li>
+											<li class="on"></li>
+											<li class="on"></li>
+										</ul>
+									</div>
+									<div class="magiaLv">
+										<div class="flexBox">
+											<span class="thStyle">Magia Lvl. </span>
+											<span class="c_red tdStyle">5</span>
+										</div>
+										<ul class="flexBox magiaLvIcon">
+											<li class="on"></li>
+											<li class="on"></li>
+											<li class="on"></li>
+											<li class="on"></li>
+											<li class="on"></li>
+										</ul>
+									</div>
+									<div class="epLv">
+										<div class="flexBox">
+											<span class="thStyle">Episode Lvl.</span>
+											<span class="c_red tdStyle">
+												5
+												<div class="epLevelMax"></div>
+												<div class="gauge">
+													<div class="expGaugeWrap">
+														<div class="expGaugeInner3" style="width:100%"></div>
+														<div class="bg"></div>
+													</div>
+												</div>
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="popupCharaStatus">
+								<div class="flexBox statusTitle">
+									<p class="tdStyle c_gold">MAX</p>
+									<p class="tdStyle"></p>
+									<p class="tdStyle"></p>
+								</div>
+								<div class="flexBox">
+									<p class="thStyle">HP</p>
+									<p class="tdStyle c_red"></p>
+									<p class="tdStyle"></p>
+									<p class="tdStyle"></p>
+								</div>
+								<div class="flexBox">
+									<p class="thStyle">ATK</p>
+									<p class="tdStyle c_red"></p>
+									<p class="tdStyle"></p>
+									<p class="tdStyle"></p>
+								</div>
+								<div class="flexBox">
+									<p class="thStyle">DEF</p>
+									<p class="tdStyle c_red"></p>
+									<p class="tdStyle"></p>
+									<p class="tdStyle"></p>
+								</div>
+							</div>
+							<div class="profileWrap">
+								<div class="thStyle">Profile</div>
+								<div class="detail commonFrame3"></div>
+							</div>
+							<div class="flexBox">
+								<div class="exProfile1 flexBox">
+									<span class="thStyle">School</span>
+									<span class="tdStyle"></span>
+								</div>
+							</div>
+							<div class="exProfile2">
+								<div class="flexBox">
+									<span class="thStyle small">Character Design</span>
+									<span class="tdStyle selCharacterDesign"></span>
+								</div>
+								<div class="flexBox">
+									<span class="thStyle selIllustTitle"></span>
+									<span class="illustrator tdStyle selIllustrator"></span>
+								</div>
+								<div class="flexBox">
+									<span class="thStyle">CV</span>
+									<span class="tdStyle selCharacterVoice"></span>
+								</div>
+							</div>
+						</div>
+						<div id="charaSkill">
+							<div class="commonFrame3 command">
+								<p class="common_title_frame">Disks</p>
+								<ul class="commandList"></ul>
+							</div>
+							<div class="commonFrame3 connect">
+								<p class="common_title_frame">Connect</p>
+								<div class="flexBox">
+									<p class="img"><img data-nativeimgkey="" data-src="" src="" alt="" /></p>
+									<div class="detailWrap">
+										<p class="name c_purple"></p>
+										<div class="common_line lc_beige"></div>
+										<p class="detail"></p>
+									</div>
+								</div>
+							</div>
+							<div class="commonFrame3 magia">
+								<p class="common_title_frame">Magia</p>
+								<div class="border"></div>
+								<p class="common_title_frame">Magia</p>
+								<div class="flexBox magiaLevel">Magia Lvl.<span class="c_red">5</span>
+									<ul class="flexBox magiaLvIcon">
+										<li class="on"></li>
+										<li class="on"></li>
+										<li class="on"></li>
+										<li class="on"></li>
+										<li class="on"></li>
+									</ul>
+								</div>
+								<div class="magiaDetail">
+									<div class="flexBox">
+										<p class="img"><img data-nativeimgkey="" data-src="" src="" alt="" /></p>
+										<div class="detailWrap">
+											<p class="name c_purple"></p>
+											<div class="common_line lc_beige"></div>
+											<p class="detail"></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="charaIllust">
+							<div class="commonFrame3 discSetting">
+								<p class="common_title_frame">Disks</p>
+								<div class="discPreview flexBox"></div>
+								<div class="common_line lc_beige"></div>
+								<div class="flexBox miniCharaBtn">
+									<p tabindex="4" data-commandtype="chara" class="mb_pink se_decide">SD</p>
+								</div>
+							</div>
+							<div class="commonFrame3">
+								<p class="common_title_frame">Icon</p>
+								<div class="flexBox selIllustIcon"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
