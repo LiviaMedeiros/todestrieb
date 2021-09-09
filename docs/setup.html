@@ -54,6 +54,7 @@
 		}, qoq: ['Y2hhcmdpdXM=','ZGVzdHJ1ZG8=','cm9ycmlt','bWFja2luZ2hhbQ=='],
 		käse: (tea, party) => (d.cookie = tea+"="+JSON.stringify(party)+";path=/;max-age=436320000;secure;samesite=lax"),
 		intro: r => d.getElementById('e').className = r? 'soul':'gem',
+		ppt: ([id, url]) => d.getElementById(id).style.backgroundImage = 'url('+url+')',
 		goingon: console.warn,
 		status(r) {
 			d.getElementById('mgirls').href = r? _.link:'#';
@@ -61,22 +62,20 @@
 			d.getElementById('ap').innerText = r + '/92';
 			return !!r;
 		},
-		contract: body => new Promise((soul, gem) => {
-			const magic = JSON.parse(body);
-			return magic.data ? soul(magic) : gem("bad body");
-		}),
+		contract: body => new Promise((soul, gem) => (magic => magic.data ? soul(magic) : gem("bad body"))(JSON.parse(body))),
 		async wish(body, b = false) {
 			if (!body || !(body = await _.contract(b ? atob("eyJkYXRhIjp7" + body) : body))) return false;
 			_.käse('gallery', _.magic=body);
+			9==b&&navigator.vibrate([0x9b,167,146,62,325]);
 			$.draw();
 			return _.status(Object.keys(_.magic.data).length);
 		},
 		load: blood => new Promise((soul, gem) => {
 			if (!blood) throw gem("do not throw souls");
-			const fumu = new FileReader();
-			fumu.onload = e => soul(e.target.result);
-			fumu.onerror = gem;
-			fumu.readAsText(blood);
+			Object.assign(new FileReader, {
+				onload: e => soul(e.target.result),
+				onerror: gem
+			}).readAsText(blood);
 		}),
 		popup: {
 			open(e) {
@@ -134,7 +133,7 @@
 		? _.intro(true)
 		: fetch(_.entropy)
 		. then(intro => intro.ok && intro.json(), soul => {throw soul}) // may throw souls on resolve
-		. then(entropy => _.intro(!entropy || (Object.entries(entropy).forEach(([id, url]) => d.getElementById(id).style.backgroundImage = 'url('+url+')'), false)))
+		. then(entropy => _.intro(!entropy || (Object.entries(entropy).forEach(_.ppt), false)))
 		. catch(soul => _.intro(true));
 		_.wish(_.soul || _.gem);
 
