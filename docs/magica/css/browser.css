@@ -7,8 +7,8 @@
 }
 
 :focus-visible {
-	filter:drop-shadow(0 0 1px #ffb6c1) drop-shadow(0 0 2px #ffb6c1) drop-shadow(0 0 3px #ffb6c1);
-	outline:none;
+	filter: drop-shadow(0 0 1px #ffb6c1) drop-shadow(0 0 2px #ffb6c1) drop-shadow(0 0 3px #ffb6c1);
+	outline: none;
 }
 
 #ready.preNativeFadeIn {
@@ -56,10 +56,6 @@
 .lm_limit_height #mainContent {
 	min-height: 600px;
 	max-height: 768px;
-}
-
-#cardDetail #detailCardName .charaName .title {
-	margin: 0 8px;
 }
 
 .commonFrame2 {
