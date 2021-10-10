@@ -84,6 +84,7 @@ Full-fledged PWA, as well as a number of different options to make it installabl
 # Adjustments
 Setup page allows to adjust some settings. Click on Gear Icon (<img src="https://todestrieb.magica-us.com/img/misc/global_etc.png" valign="middle" height="20" />) to open. Doubleclick on Homushield (<img src="https://todestrieb.magica-us.com/img/misc/icon_reset.png" valign="middle" height="20" />) to reset.
 - `fix scrollbug` is an optional fix for touch devices: when you tap on someone in the list and scroll, it doesn't open that someone. This bug still happens in live JP game (especially on some emulators) so the fix is not enabled by default.
+- `fix titlebug` fixes unit titles (e.g. "Kimono") by adding brackets and extra spacing.
 - `keep statbug` brings back ★★★★★ish stats for capped girls.
 - `keep exbug` brings back a visual glitch for EX Skills.
 - `limit height` keeps the main list in the normal view area, disallowing it to stretch out of it if your window has more height than needed (i.e. desktop or portrait orientation).
