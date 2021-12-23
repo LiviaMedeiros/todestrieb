@@ -80,7 +80,7 @@
 #cardDetail #charaIllust .commonFrame3 .mb_pink.selected {
 	cursor: default;
 }
-#CharaCollection #charaWrap .chara.commonFrame4[max-card-rank="0"] {
+#CharaCollection #charaWrap .chara.commonFrame4.lm_missing {
 	cursor: not-allowed;
 }
 #cardDetail #detailCardImage .cardImg {
@@ -136,7 +136,7 @@
 	}
 	#cardDetail #detailCardImage.zoom .zoomImg {
 		width: calc(100vh - 22px);
-		left: calc(50vw - 74vh);
+		left: calc(50% - 74vh);
 		top: calc(100vh - 11px);
 		transform-origin: 0 0;
 	}
