@@ -2,6 +2,8 @@
 
 Unofficial web version of Magia Record English: standalone Gallery Mode.
 
+![deployment](https://github.com/LiviaMedeiros/todestrieb/actions/workflows/pages/pages-build-deployment/badge.svg)
+
 # Key features
 - ***Magical Girls Gallery in your browser!***
   - No need to install the app, no need to use emulator.
