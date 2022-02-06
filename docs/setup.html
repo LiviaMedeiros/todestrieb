@@ -34,8 +34,8 @@
 		magic: {},
 		soul: null,
 		gem: '{"data":{}}',
-		link: 'https://todestrieb.magica-us.com/',
-		entropy: 'https://todestrieb.magica-us.com/magica/json/ENtropy.json',
+		link: new URL(location.origin),
+		entropy: new URL('magica/json/ENtropy.json', location.origin),
 		grief:seed => seed.split("").reduce((q,b)=>~((q<<5)-q+b.charCodeAt(0))%0x40691a05>>>0,0x2666a164),
 		seed: {
 			0xcee160  : "IjMwNTIiOlsiMzA1MjQiLCIzMDUyNSJdfSwiYWRqdXN0bWVudHMiOnsiYWxsX2Rpc2NzIjoiUkFOR0VfSCJ9fQ==",// 146
@@ -52,7 +52,7 @@
 			0xf9d02a71: "IjEwMDEiOlsiMTAwMTEiXX19",// 168
 			0xf9d1fc09: "fX0="// void
 		}, qoq: ['Y2hhcmdpdXM=','ZGVzdHJ1ZG8=','cm9ycmlt','bWFja2luZ2hhbQ=='],
-		käse: (tea, party) => (d.cookie = tea+"="+JSON.stringify(party)+";path=/;max-age=436320000;secure;samesite=lax"),
+		käse: (tea, party) => d.cookie = tea+"="+JSON.stringify(party)+";path=/;max-age=436320000;secure;samesite=lax",
 		intro: r => d.getElementById('e').className = r? 'soul':'gem',
 		ppt: ([id, url]) => d.getElementById(id).style.backgroundImage = 'url('+url+')',
 		goingon: console.warn,
@@ -73,7 +73,7 @@
 		load: blood => new Promise((soul, gem) => {
 			if (!blood) throw gem("do not throw souls");
 			Object.assign(new FileReader, {
-				onload: e => soul(e.target.result),
+				onload: ({target:{result}}) => soul(result),
 				onerror: gem
 			}).readAsText(blood);
 		}),
@@ -88,25 +88,26 @@
 
 	const $ = {
 		magic: {},
-		valid: ['fix_scrollbug', 'fix_titlebug', 'keep_statbug', 'keep_exbug', 'limit_height', 'hide_missing', 'mirror'],
+		valid: new Set("fix_scrollbug fix_titlebug keep_statbug keep_exbug limit_height hide_missing show_kana mirror".split(" ")),
 		adjustments: {
 			"fix_scrollbug": false,
 			"fix_titlebug": false,
 			"keep_statbug": false,
 			"keep_exbug": false,
 			"limit_height": false,
-			"hide_missing": false
+			"hide_missing": false,
+			"show_kana": false,
 		},
-		init(e) {
+		init() {
 			$.features = d.getElementById('features');
 			$.draw($.set(JSON.parse((d.cookie.match(/(?:^|; )adjustments=([^;]*)/)||[0,null])[1]||'{}')));
 		},
 		set: e => Object.assign($.magic, e),
-		purge: e => ($.magic = {}),
-		touch: e => $.pull($.set({[e.target.id]:e.target.checked})),
+		purge: () => $.magic = {},
+		touch: ({target:{id,checked}}) => $.pull($.set({[id]:checked})),
 		features: null,
-		menu: (catcon, [key, value]) => $.valid.includes(key) ?
-			((c, l) => {
+		menu: (catcon, [key, value]) => $.valid.has(key) ?
+			(([c, l]) => {
 				c.type = 'checkbox';
 				c.className = 'adjustment';
 				c.id = l.htmlFor = key;
@@ -114,17 +115,14 @@
 				c.addEventListener('change', $.touch);
 				l.appendChild(d.createTextNode(key.replace('_',' ')));
 				return catcon.concat(c, l);
-			})(d.createElement('input'), d.createElement('label')) : catcon,
+			})(['input', 'label'].map(e => d.createElement(e))) : catcon,
 		pull(e) {
 			_.käse('adjustments', e);
 			$.draw(e);
 		},
 		draw: (e = null) => !d.getElementById('adjust').classList.contains('init') && $.features.replaceChildren(...Object.entries({...$.adjustments, ...(e || $.magic), ..._.magic.adjustments}).reduce($.menu, [])),
-		toggle(e) {
-			if (e.target.classList.contains('init')) {
-				e.target.classList.remove('init');
-				$.init();
-			}
+		toggle({target:{classList}}) {
+			classList.contains('init') && (classList.remove('init'), $.init());
 			d.getElementById('adjustments').classList.toggle('active');
 		}
 	};
