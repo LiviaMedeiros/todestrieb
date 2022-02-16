@@ -91,6 +91,7 @@ Setup page allows to adjust some settings. Click on Gear Icon (<img src="https:/
 - `keep exbug` brings back a visual glitch for EX Skills.
 - `limit height` keeps the main list in the normal view area, disallowing it to stretch out of it if your window has more height than needed (i.e. desktop or portrait orientation).
 - `hide missing` purges all Magical Girls that you didn't pull.
+- `show kana` enables hiragana transcript in the list.
 
 Also there are hidden adjustments. They can be enabled by using a method described in the next section.
 
