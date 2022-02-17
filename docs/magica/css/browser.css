@@ -68,6 +68,11 @@
 	mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 10%, #000 11%, #000 100%);
 }
 
+#cardDetail #cardDetailWrap #charaStatus .statusWrap .epLv .tdStyle {
+	height: 42px;
+	line-height: 42px;
+}
+
 #CharaCollection #tabArea .tabBtns li,
 #CharaCollection #charaWrap .chara.commonFrame4,
 #cardDetail #detailTab li,
