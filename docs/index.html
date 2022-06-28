@@ -31,10 +31,9 @@
 	<link rel="icon" type="image/png" sizes="32x32" href="/img/icon/32.png" />
 	<link rel="icon" type="image/png" sizes="24x24" href="/img/icon/24.png" />
 	<link rel="icon" type="image/png" sizes="16x16" href="/img/icon/16.png" />
-	<script integrity="sha512-hsn94R99cME+Pu6VMs2iGzOV4YNNaIiTcVg6ZEfeg49rzp9kRdENxquTh22wLy3wayKcddqiMFq7UxhZsrTaaQ==" src="/magica/js/libs/jquery-3.6.0.smol.min.js"></script>
-	<script integrity="sha512-XKGpr2QOttlQCEgwWoohiNK79iAid/yav6siWKtvtqNUzrS3eJ4sOmY32Vhk7vt9chUzRMXxkFczW70zN+DQ7Q==" src="/magica/js/sa/NA.js"></script>
+	<script integrity="sha512-4JNlvnc+Ab2EadEvhrgMlJDkzlz+ZRX3Zrfp9fbEL43DGEdQq7mKkQ7LnhkYcLUOVXzFFRP94bXWo5NxkH6lZA==" src="/magica/js/sa/NA.js"></script>
 	<link integrity="sha512-aL0JziLJjS6EB2+Pz0G7wnU23ZwRB9yH9WiMiEIPnADNcFF8oFWF0cuQKoz0Gpqu4A+SGBsg69THp72yC0wpAg==" id="style_common" rel="stylesheet" href="/magica/css/common.css" />
-	<link integrity="sha512-MBpih6zofOemCDyOcOeN9rsnHHRQPJKUeMKZFJI/mOdCTm3YDX9jHvFjS0F5/DG3T/BXufzyZm8O5nTrUL9t3g==" id="style_browser" rel="stylesheet" href="/magica/css/browser.css" />
+	<link integrity="sha512-ikovrg71qF1cTrqWJ45IUXSOjmfJX/XMypqhSc27Nz9hURFJ6AlKcmWDbb4I4CUTf+9F8/q4nIlowbuGCqRcfQ==" id="style_browser" rel="stylesheet" href="/magica/css/browser.css" />
 	<style id="style_adjustments"></style>
 	<style id="style_inline">body{background:url(/magica/resource/image_web/test/bg/web_common.jpg) left top no-repeat}</style>
 </head>
@@ -72,152 +71,176 @@
 				</div>
 			</div>
 		</div>
-		<div id="cardDetail" class="hide"><span class="collectionBack"></span></div>
-		<div id="tmplCharaDetail" style="display:none">
-			<span tabindex="50" class="collectionBack">
-				<span class="se_cancel"></span>
-			</span>
-			<div id="detailCardName">
-				<span id="att"></span>
-				<p class="charaName ts_pink"></p>
-			</div>
-			<div id="detailCardImage"></div>
-			<ul id="detailTab" class="common_tab t_gold">
-				<li tabindex="3" data-type="status" class="TE se_tabs current"><span>About</span></li>
-				<li tabindex="3" data-type="skill" class="TE se_tabs"><span>Skills</span></li>
-				<li tabindex="3" data-type="illust" class="TE se_tabs"><span>Settings</span></li>
-			</ul>
-			<div id="cardDetailWrap" class="status">
-				<div tabindex="-1" id="hiddenWrap" class="hiddenWrap" style="position:relative;overflow-y:scroll">
-					<div tabindex="-1" class="scrollInner" style="position:relative">
-						<div id="charaStatus">
-							<div class="status">
-								<div id="cardDetailMiniChara">
-									<img alt="" />
-									<span class="bg">
-										<div id="rare"></div>
-									</span>
+		<div id="cardDetail" class="hide"></div>
+	</div>
+	<template id="tmplCharaDetail">
+		<span tabindex="50" class="collectionBack">
+			<span class="se_cancel"></span>
+		</span>
+		<div id="detailCardName">
+			<span id="att"></span>
+			<p class="charaName ts_pink"></p>
+		</div>
+		<div id="detailCardImage"></div>
+		<ul id="detailTab" class="common_tab t_gold">
+			<li tabindex="3" data-type="status" class="TE se_tabs current"><span>About</span></li>
+			<li tabindex="3" data-type="skill" class="TE se_tabs"><span>Skills</span></li>
+			<li tabindex="3" data-type="illust" class="TE se_tabs"><span>Settings</span></li>
+		</ul>
+		<div id="cardDetailWrap" class="status">
+			<div tabindex="-1" id="hiddenWrap" class="hiddenWrap" style="position:relative;overflow-y:scroll">
+				<div tabindex="-1" class="scrollInner" style="position:relative">
+					<div id="charaStatus">
+						<div class="status">
+							<div id="cardDetailMiniChara">
+								<img alt="" />
+								<div class="bg">
+									<div id="rare"></div>
 								</div>
-								<div class="statusWrap">
-									<div class="level">
-										<div class="flexBox">
-											<span class="thStyle">Lvl.</span>
-											<p id="detailLv" class="tdStyle">
-												<span class="currentLv c_red"></span>
-												<span class="sla">/</span>
-												<span class="maxLv"></span>
-											</p>
+							</div>
+							<div class="statusWrap">
+								<div class="level">
+									<div class="flexBox">
+										<span class="thStyle">Lvl.</span>
+										<p id="detailLv" class="tdStyle">
+											<span class="currentLv c_red"></span>
+											<span class="sla">/</span>
+											<span class="maxLv"></span>
+										</p>
+									</div>
+									<div class="gauge">
+										<div class="levelMax"></div>
+										<div class="expGaugeWrap">
+											<div class="expGaugeInner" style="width:100%"></div>
+											<div class="bg"></div>
 										</div>
-										<div class="gauge">
-											<div class="levelMax"></div>
-											<div class="expGaugeWrap">
-												<div class="expGaugeInner" style="width:100%"></div>
-												<div class="bg"></div>
+									</div>
+								</div>
+								<div class="type flexBox">
+									<span class="thStyle">Type</span>
+									<span class="tdStyle"></span>
+								</div>
+								<div class="revision">
+									<div class="flexBox">
+										<span class="thStyle">Magic Lvl.</span>
+										<span class="c_red tdStyle">3</span>
+									</div>
+									<ul class="flexBox revisionIcon">
+										<li class="on"></li>
+										<li class="on"></li>
+										<li class="on"></li>
+									</ul>
+								</div>
+								<div class="magiaLv">
+									<div class="flexBox">
+										<span class="thStyle">Magia Lvl. </span>
+										<span class="c_red tdStyle">5</span>
+									</div>
+									<ul class="flexBox magiaLvIcon">
+										<li class="on"></li>
+										<li class="on"></li>
+										<li class="on"></li>
+										<li class="on"></li>
+										<li class="on"></li>
+									</ul>
+								</div>
+								<div class="epLv">
+									<div class="flexBox">
+										<span class="thStyle">Episode Lvl.</span>
+										<div class="c_red tdStyle">
+											5
+											<div class="epLevelMax"></div>
+											<div class="gauge">
+												<div class="expGaugeWrap">
+													<div class="expGaugeInner3" style="width:100%"></div>
+													<div class="bg"></div>
+												</div>
 											</div>
 										</div>
 									</div>
-									<div class="type flexBox">
-										<span class="thStyle">Type</span>
-										<span class="tdStyle"></span>
-									</div>
-									<div class="revision">
-										<div class="flexBox">
-											<span class="thStyle">Magic Lvl.</span>
-											<span class="c_red tdStyle">3</span>
-										</div>
-										<ul class="flexBox revisionIcon">
-											<li class="on"></li>
-											<li class="on"></li>
-											<li class="on"></li>
-										</ul>
-									</div>
-									<div class="magiaLv">
-										<div class="flexBox">
-											<span class="thStyle">Magia Lvl. </span>
-											<span class="c_red tdStyle">5</span>
-										</div>
-										<ul class="flexBox magiaLvIcon">
-											<li class="on"></li>
-											<li class="on"></li>
-											<li class="on"></li>
-											<li class="on"></li>
-											<li class="on"></li>
-										</ul>
-									</div>
-									<div class="epLv">
-										<div class="flexBox">
-											<span class="thStyle">Episode Lvl.</span>
-											<span class="c_red tdStyle">
-												5
-												<div class="epLevelMax"></div>
-												<div class="gauge">
-													<div class="expGaugeWrap">
-														<div class="expGaugeInner3" style="width:100%"></div>
-														<div class="bg"></div>
-													</div>
-												</div>
-											</span>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div id="popupCharaStatus">
-								<div class="flexBox statusTitle">
-									<p class="tdStyle c_gold">MAX</p>
-									<p class="tdStyle"></p>
-									<p class="tdStyle"></p>
-								</div>
-								<div class="flexBox">
-									<p class="thStyle">HP</p>
-									<p class="tdStyle c_red"></p>
-									<p class="tdStyle"></p>
-									<p class="tdStyle"></p>
-								</div>
-								<div class="flexBox">
-									<p class="thStyle">ATK</p>
-									<p class="tdStyle c_red"></p>
-									<p class="tdStyle"></p>
-									<p class="tdStyle"></p>
-								</div>
-								<div class="flexBox">
-									<p class="thStyle">DEF</p>
-									<p class="tdStyle c_red"></p>
-									<p class="tdStyle"></p>
-									<p class="tdStyle"></p>
-								</div>
-							</div>
-							<div class="profileWrap">
-								<div class="thStyle">Profile</div>
-								<div class="detail commonFrame3"></div>
-							</div>
-							<div class="flexBox">
-								<div class="exProfile1 flexBox">
-									<span class="thStyle">School</span>
-									<span class="tdStyle"></span>
-								</div>
-							</div>
-							<div class="exProfile2">
-								<div class="flexBox">
-									<span class="thStyle small">Character Design</span>
-									<span class="tdStyle selCharacterDesign"></span>
-								</div>
-								<div class="flexBox">
-									<span class="thStyle selIllustTitle"></span>
-									<span class="illustrator tdStyle selIllustrator"></span>
-								</div>
-								<div class="flexBox">
-									<span class="thStyle">CV</span>
-									<span class="tdStyle selCharacterVoice"></span>
 								</div>
 							</div>
 						</div>
-						<div id="charaSkill">
-							<div class="commonFrame3 command">
-								<p class="common_title_frame">Disks</p>
-								<ul class="commandList"></ul>
+						<div id="popupCharaStatus">
+							<div class="flexBox statusTitle">
+								<p class="tdStyle c_gold">MAX</p>
+								<p class="tdStyle"></p>
+								<p class="tdStyle"></p>
 							</div>
-							<div class="commonFrame3 connect">
-								<p class="common_title_frame">Connect</p>
+							<div class="flexBox">
+								<p class="thStyle">HP</p>
+								<p class="tdStyle c_red"></p>
+								<p class="tdStyle"></p>
+								<p class="tdStyle"></p>
+							</div>
+							<div class="flexBox">
+								<p class="thStyle">ATK</p>
+								<p class="tdStyle c_red"></p>
+								<p class="tdStyle"></p>
+								<p class="tdStyle"></p>
+							</div>
+							<div class="flexBox">
+								<p class="thStyle">DEF</p>
+								<p class="tdStyle c_red"></p>
+								<p class="tdStyle"></p>
+								<p class="tdStyle"></p>
+							</div>
+						</div>
+						<div class="profileWrap">
+							<div class="thStyle">Profile</div>
+							<div class="detail commonFrame3"></div>
+						</div>
+						<div class="flexBox">
+							<div class="exProfile1 flexBox">
+								<span class="thStyle">School</span>
+								<span class="tdStyle"></span>
+							</div>
+						</div>
+						<div class="exProfile2">
+							<div class="flexBox">
+								<span class="thStyle small">Character Design</span>
+								<span class="tdStyle selCharacterDesign"></span>
+							</div>
+							<div class="flexBox">
+								<span class="thStyle selIllustTitle"></span>
+								<span class="illustrator tdStyle selIllustrator"></span>
+							</div>
+							<div class="flexBox">
+								<span class="thStyle">CV</span>
+								<span class="tdStyle selCharacterVoice"></span>
+							</div>
+						</div>
+					</div>
+					<div id="charaSkill">
+						<div class="commonFrame3 command">
+							<p class="common_title_frame">Disks</p>
+							<ul class="commandList"></ul>
+						</div>
+						<div class="commonFrame3 connect">
+							<p class="common_title_frame">Connect</p>
+							<div class="flexBox">
+								<p class="img"><img data-nativeimgkey="" data-src="" src="" alt="" /></p>
+								<div class="detailWrap">
+									<p class="name c_purple"></p>
+									<div class="common_line lc_beige"></div>
+									<p class="detail"></p>
+								</div>
+							</div>
+						</div>
+						<div class="commonFrame3 magia">
+							<p class="common_title_frame">Magia</p>
+							<div class="border"></div>
+							<p class="common_title_frame">Magia</p>
+							<div class="flexBox magiaLevel">Magia Lvl.<span class="c_red">5</span>
+								<ul class="flexBox magiaLvIcon">
+									<li class="on"></li>
+									<li class="on"></li>
+									<li class="on"></li>
+									<li class="on"></li>
+									<li class="on"></li>
+								</ul>
+							</div>
+							<div class="magiaDetail">
 								<div class="flexBox">
 									<p class="img"><img data-nativeimgkey="" data-src="" src="" alt="" /></p>
 									<div class="detailWrap">
@@ -227,49 +250,25 @@
 									</div>
 								</div>
 							</div>
-							<div class="commonFrame3 magia">
-								<p class="common_title_frame">Magia</p>
-								<div class="border"></div>
-								<p class="common_title_frame">Magia</p>
-								<div class="flexBox magiaLevel">Magia Lvl.<span class="c_red">5</span>
-									<ul class="flexBox magiaLvIcon">
-										<li class="on"></li>
-										<li class="on"></li>
-										<li class="on"></li>
-										<li class="on"></li>
-										<li class="on"></li>
-									</ul>
-								</div>
-								<div class="magiaDetail">
-									<div class="flexBox">
-										<p class="img"><img data-nativeimgkey="" data-src="" src="" alt="" /></p>
-										<div class="detailWrap">
-											<p class="name c_purple"></p>
-											<div class="common_line lc_beige"></div>
-											<p class="detail"></p>
-										</div>
-									</div>
-								</div>
+						</div>
+					</div>
+					<div id="charaIllust">
+						<div class="commonFrame3 discSetting">
+							<p class="common_title_frame">Disks</p>
+							<div class="discPreview flexBox"></div>
+							<div class="common_line lc_beige"></div>
+							<div class="flexBox miniCharaBtn">
+								<p tabindex="4" data-commandtype="chara" class="mb_pink se_decide">SD</p>
 							</div>
 						</div>
-						<div id="charaIllust">
-							<div class="commonFrame3 discSetting">
-								<p class="common_title_frame">Disks</p>
-								<div class="discPreview flexBox"></div>
-								<div class="common_line lc_beige"></div>
-								<div class="flexBox miniCharaBtn">
-									<p tabindex="4" data-commandtype="chara" class="mb_pink se_decide">SD</p>
-								</div>
-							</div>
-							<div class="commonFrame3">
-								<p class="common_title_frame">Icon</p>
-								<div class="flexBox selIllustIcon"></div>
-							</div>
+						<div class="commonFrame3">
+							<p class="common_title_frame">Icon</p>
+							<div class="flexBox selIllustIcon"></div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	</template>
 </body>
 </html>

@@ -14,7 +14,6 @@ Let's consider `/docs/` to be root. Each directory includes all its descendants.
 0. accompanying data:
     - *outside of root*, `/404.html`, `/favicon.ico`, `/CNAME`, `/manifest.json`, `/css/`
 1. third-party files:
-    - `/magica/js/libs/`
     - `/magica/json/font/`
 2. the code:
     - `/magica/setup.html`
