@@ -97,6 +97,7 @@
 			"limit_height": false,
 			"hide_missing": false,
 			"show_kana": false,
+			"mirror": false,
 		},
 		init() {
 			$.features = d.getElementById('features');
@@ -211,6 +212,7 @@ a {color:inherit;text-decoration:inherit}
 #adjustments {position:absolute;top:48px;left:100px;z-index:80;display:none;text-shadow:0px 0px 4px #fff;color: #324}
 #adjustments.active {display:block}
 #reset {display:block;position:absolute;left:-75px;top:110px;width:51px;height:52px;cursor:wait;background:left top/contain no-repeat url(/img/misc/icon_reset.png)}
+#features {columns:2}
 #features > input[type=checkbox] {display:none}
 #features > input[type=checkbox] + label {margin:4px 0;padding:0 0 0 44px;line-height:40px;height:40px;background:left top no-repeat url(/magica/resource/image_web/common/icon/icon_checkbox.png);display:block;position:relative}
 #features > input[type=checkbox]:checked + label:before {width:27px;height:21px;background:left top/contain no-repeat url(/magica/resource/image_web/common/icon/icon_checkbox_check.png);position:absolute;top:9px;left:6px;content:""}
