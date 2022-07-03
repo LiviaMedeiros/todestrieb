@@ -28,6 +28,9 @@ Unofficial web version of Magia Record English: standalone Gallery Mode.
 - ***Suffer alone!***
   - No multiplayer, no connections to server API to play.
   - Be aware that the server support for the original app may be discontinued eventually.
+- ***Works offline!***
+  - Once launched and cached, the gallery might work without internet connection.
+  - Supports installing to improve offline experience even further.
 - ***No sounds, no videos!***
   - It's easy to implement, but <s>unless I'll get explicit permission from Aniplex</s> there will be no sound effects, no [Inevitabilis](https://www.madoka-magica.com/tv/bddvd/cd_st.html) as BGM, and no transformation videos in this version.
 - ***Accessibility!***
@@ -48,7 +51,7 @@ Unofficial web version of Magia Record English: standalone Gallery Mode.
 # Limitations
 - Recommended screen ratio is between 4:3 and 128:75, recommended window width for desktop mode is 1024 (i.e. from 1024x600 to 1024x768).
 - Extra screen height will just add a gap, lack of height may cause inconvenience. See [Android installation](#android-installation).
-- Internet connection is required. Offline navigation is possible but limited by amount of fully loaded Magical Girls.
+- Internet connection is required for the first launch. Offline navigation is possible but limited by amount of fully loaded Magical Girls.
 - Recommended browsers: anything modern but WebKit-based is most preferable.
 - At this moment, the goal of this project is to preserve the Gallery and fix its issues. Not to make it more functional.
 - I do not store/collect/process any personal data via web version. However, any induced emotions may be used to adjust the entropy.
@@ -60,7 +63,7 @@ To use web Gallery, you must import your list of Magical Girls first. There are 
 2. Use [NAgitan](https://xn--80aalyho.xn--p1ai/magireco/NAgitan/acceptance) to export data from your `user.zip` backup, and save that data by clicking on bottom right corner of page.<br>
 <img src="https://todestrieb.magica-us.com/img/tutorial/NAgitan.png" />
 
-※ Import via file is not a transfer: if you kept the file copy in original location, it will still allow to play the original app as well.<br>
+※ Import via file is not a transfer: if you kept the file copy in original location, it will still allow playing the original app as well.<br>
 ※ The file starts with `{"data":{` and must be less than 4KB. Do not throw wrong files.
 
 Then visit the [import page](https://todestrieb.magica-us.com/setup).
@@ -77,9 +80,11 @@ If you use Google Chrome on Android device, you can visit the [Gallery](https://
 That's all: The Gallery can be opened directly as standalone app, without address bar.<br>
 Similar features are supported by other browsers and operating systems. Also you can do the same thing ("create shortcut") on PC, and adjust the window size to your preferences.
 
+Additionally, the gallery can be installed as a standalone application. This is the most preferable way to use it on both mobile and desktop devices.
+
 ※ This method doesn't go fullscreen, i.e. remove the status bar (with clock and battery) nor navigation bar (Back, Home and App Overview).<br>
 The reason behind preserving status bar is that it can't be removed without hiding navigation bar as well.<br>
-The reason behind preserving navigation bar is a bug on some devices: they intercept any touch as "reveal nabvar" command, and hide it again by timeout.
+The reason behind preserving navigation bar is a bug on some devices: they intercept any touch as "reveal navbar" command, and hide it again by timeout.
 
 Full-fledged PWA, as well as a number of different options to make it installable, portable and accessible offline, are rejected for several reasons. One of them is that official app already covers that.
 
@@ -89,6 +94,7 @@ Setup page allows to adjust some settings. Click on Gear Icon (<img src="https:/
 - `fix titlebug` fixes unit titles (e.g. "Kimono") by adding brackets and extra spacing.
 - `keep statbug` brings back ★★★★★ish stats for capped girls.
 - `keep exbug` brings back a visual glitch for EX Skills.
+- `limit width` keeps the width as 1024px instead of streching to full screen.
 - `limit height` keeps the main list in the normal view area, disallowing it to stretch out of it if your window has more height than needed (i.e. desktop or portrait orientation).
 - `hide missing` purges all Magical Girls that you didn't pull.
 - `show kana` enables hiragana transcript in the list.
@@ -97,6 +103,8 @@ Also there are hidden adjustments. They can be enabled by using a method describ
 
 # Testing
 If for some reason you don't have the file (e.g. if you played only JP and want to experience the suffering of NA players) or want to test, erase the contents of AP counter and type a cheatcode, without quotes or spaces. For example, `mackingham` adds all reputable M-Girls. `f4samurai` restores stat calculation bug, EX skill bug, sensitive scroll and wrong font. Of course there are (and will be) more of these.
+
+Another option is to visit [demo version](https://todestrieb.magica-us.com/mackingham) first.
 
 ※ Using cheats will reset your Magical Girls list, and may force state of some settings.
 
