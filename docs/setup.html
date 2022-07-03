@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8" />
 <title>Gallery Mode setup</title>
-<meta id="viewport" name="viewport" content="width=768, user-scalable=no" />
+<meta id="viewport" name="viewport" content="width=1024, user-scalable=no" />
 <meta name="mobile-web-app-capable" content="yes" />
 <meta name="author" content="LiviaMedeiros" />
 <meta name="description" content="Import gallery" />
@@ -88,16 +88,16 @@
 
 	const $ = {
 		magic: {},
-		valid: new Set("fix_scrollbug fix_titlebug keep_statbug keep_exbug limit_height hide_missing show_kana mirror".split(" ")),
+		valid: new Set("fix_scrollbug fix_titlebug keep_statbug keep_exbug limit_width limit_height hide_missing show_kana mirror".split(" ")),
 		adjustments: {
 			"fix_scrollbug": false,
 			"fix_titlebug": false,
 			"keep_statbug": false,
 			"keep_exbug": false,
+			"limit_width": false,
 			"limit_height": false,
 			"hide_missing": false,
 			"show_kana": false,
-			"mirror": false,
 		},
 		init() {
 			$.features = d.getElementById('features');
@@ -209,7 +209,7 @@ a {color:inherit;text-decoration:inherit}
 
 #adjust {display:block;cursor:not-allowed;position:fixed;color:inherit;text-decoration:inherit;z-index:70;top:48px;left:5px;width:83px;height:88px;background:left top/contain no-repeat url(/img/misc/global_etc.png);filter:grayscale(.8);transition:filter 1s}
 .suffering #adjust {filter:grayscale(0);cursor:pointer;}
-#adjustments {position:absolute;top:48px;left:100px;z-index:80;display:none;text-shadow:0px 0px 4px #fff;color: #324}
+#adjustments {position:absolute;top:48px;left:100px;z-index:80;display:none;text-shadow:0 0 2px #fff, 0 0 3px #fff, 0 0 4px #fff, 0 0 8px #000, 0 0 8px #000, 0 0 16px #fff;color: #324}
 #adjustments.active {display:block}
 #reset {display:block;position:absolute;left:-75px;top:110px;width:51px;height:52px;cursor:wait;background:left top/contain no-repeat url(/img/misc/icon_reset.png)}
 #features {columns:2}
