@@ -73,16 +73,22 @@
 	line-height: 42px;
 }
 
-#CharaCollection #tabArea .tabBtns li,
-#CharaCollection #charaWrap .chara.commonFrame4,
-#cardDetail #detailTab li,
-#cardDetail #charaIllust .commonFrame3 .mb_pink,
-#cardDetail .collectionBack span {
+#CharaCollection :where(
+	#tabArea .tabBtns li,
+	#charaWrap .chara.commonFrame4
+),
+#cardDetail :where(
+	#detailTab li,
+	#charaIllust .commonFrame3 .mb_pink,
+	.collectionBack span
+) {
 	cursor: pointer;
 }
 #CharaCollection #tabArea .tabBtns li.current,
-#cardDetail #detailTab li.current,
-#cardDetail #charaIllust .commonFrame3 .mb_pink.selected {
+#cardDetail :where(
+	#detailTab li.current,
+	#charaIllust .commonFrame3 .mb_pink.selected
+) {
 	cursor: default;
 }
 #CharaCollection #charaWrap .chara.commonFrame4.lm_missing {
@@ -99,32 +105,53 @@
 	cursor: not-allowed;
 }
 
-.lm_rorrim #CharaCollection #charaWrap .chara .nameWrap .title,
-.lm_rorrim .common_tab li span,
-.lm_rorrim #cardDetail .thStyle,
-.lm_rorrim #cardDetail #cardDetailWrap #charaStatus #popupCharaStatus .tdStyle,
-.lm_rorrim #cardDetail #charaSkill .common_title_frame,
-.lm_rorrim #cardDetail #charaIllust .common_title_frame,
-.lm_rorrim #cardDetail #charaSetting .common_title_frame {
+.lm_rorrim :where(
+	#CharaCollection #charaWrap .chara .nameWrap .title,
+	.common_tab li span,
+	#cardDetail :where(
+		.thStyle,
+		#cardDetailWrap #charaStatus #popupCharaStatus .tdStyle,
+		:where(
+			#charaSkill,
+			#charaSetting
+		) .common_title_frame
+	)
+) {
 	direction: rtl;
 	unicode-bidi: bidi-override;
 }
-.lm_rorrim #CharaCollection #charaWrap h2,
-.lm_rorrim #CharaCollection #charaWrap .chara .nameWrap .name,
-.lm_rorrim #cardDetail #detailCardName .charaName,
-.lm_rorrim #cardDetail #cardDetailWrap #charaStatus .profileWrap .commonFrame3,
-.lm_rorrim #cardDetail #cardDetailWrap #charaStatus .statusWrap .tdStyle,
-.lm_rorrim #cardDetail #cardDetailWrap #charaStatus .exProfile1 .tdStyle,
-.lm_rorrim #cardDetail #cardDetailWrap #charaStatus .exProfile2 .tdStyle,
-.lm_rorrim #cardDetail #charaSkill .commonFrame3 .detailWrap .name,
-.lm_rorrim #cardDetail #charaSkill .commonFrame3 .detailWrap .detail {
+.lm_rorrim :where(
+	#CharaCollection #charaWrap :where(
+		h2,
+		.chara .nameWrap .name
+	),
+	#cardDetail :where(
+		#detailCardName .charaName,
+		#cardDetailWrap #charaStatus :where(
+			.profileWrap .commonFrame3,
+			:where(
+				.statusWrap,
+				.exProfile1,
+				.exProfile2
+			) .tdStyle
+		),
+		#charaSkill .commonFrame3 .detailWrap :where(
+			.name,
+			.detail
+		)
+	)
+) {
 	direction: rtl;
 	unicode-bidi: bidi-override;
 	text-align: left;
 }
-.lm_rorrim #CharaCollection #charaWrap .chara .userCharaIcon img,
-.lm_rorrim #cardDetail #cardDetailWrap #charaStatus #cardDetailMiniChara img,
-.lm_rorrim #cardDetail #charaIllust .commonFrame3 .cardIllustWrap .userCharaIcon img {
+.lm_rorrim :where(
+	#CharaCollection #charaWrap .chara .userCharaIcon,
+	#cardDetail :where(
+		#cardDetailWrap #charaStatus #cardDetailMiniChara,
+		#charaIllust .commonFrame3 .cardIllustWrap .userCharaIcon
+	)
+) img {
 	transform: scaleX(-1);
 }
 
